@@ -12,8 +12,11 @@ public class InputValidator {
                     break;
                 }
             }
-            source.nextLine(); //error
-            System.out.println("Количество гостей некорректно для подсчета. Пожалуйста введите корректное количество гостей.");
+            try {
+                source.nextLine();
+            } finally {
+                System.out.println("Количество гостей некорректно для подсчета. Пожалуйста введите корректное количество гостей.");
+            }
         }
         return personsAmount;
     }
@@ -26,8 +29,11 @@ public class InputValidator {
                 product.setName(source.nextLine());
                 break;
             }
-            source.nextLine();
-            System.out.println("При вводе названия товара произошла ошибка. Пожалуйста, введите название товара ещё раз.");
+            try {
+                source.nextLine();
+            } finally {
+                System.out.println("При вводе названия товара произошла ошибка. Пожалуйста, введите название товара ещё раз.");
+            }
         } while (true);
         double price;
         do {
@@ -39,8 +45,11 @@ public class InputValidator {
                     break;
                 }
             }
-            source.nextLine();
-            System.out.println("При вводе цены товара произошла ошибка. Пожалуйста, введите цену товара ещё раз.");
+            try {
+                source.nextLine();
+            } finally {
+                System.out.println("При вводе цены товара произошла ошибка. Пожалуйста, введите цену товара ещё раз.");
+            }
         } while (true);
 
         return product;
@@ -54,8 +63,11 @@ public class InputValidator {
                 command = source.nextLine();
                 return command.equalsIgnoreCase("Завершить");
             }
-            source.next();
-            System.out.println("Произошла ошибка при работе программы. Повторите ввод, пожалуйста");
+            try {
+                source.nextLine();
+            } finally {
+                System.out.println("Произошла ошибка при работе программы. Повторите ввод, пожалуйста");
+            }
         }
     }
 }
