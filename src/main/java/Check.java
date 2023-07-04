@@ -24,16 +24,24 @@ public class Check {
      public void showSplittedAmount(int personAmount) {
         double amountPerPerson = totalAmount / personAmount;
         String currencyLabel;
-        switch ((int) Math.floor(amountPerPerson)) {
-            case 1:
-                currencyLabel = "рубль";
-                break;
-            case 2, 3, 4:
-                currencyLabel = "рубля";
-                break;
-            default:
-                currencyLabel = "рублей";
-                break;
+        int roundedValue = (int) Math.floor(amountPerPerson);
+        int lastTwoDigits = roundedValue % 100;
+
+        if ((lastTwoDigits >= 11) && (lastTwoDigits <= 14)) {
+            currencyLabel = "рублей";
+         } else {
+            int lastDigit = lastTwoDigits % 10;
+            switch (lastDigit) {
+                case 1:
+                    currencyLabel = "рубль";
+                    break;
+                case 2, 3, 4:
+                    currencyLabel = "рубля";
+                    break;
+                default:
+                    currencyLabel = "рублей";
+                    break;
+            }
         }
         System.out.printf("%.2f " + currencyLabel + "с каждого гостя", amountPerPerson);
      }
