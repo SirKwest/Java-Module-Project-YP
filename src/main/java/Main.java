@@ -5,11 +5,11 @@ public class Main {
         InputValidator inputValidator = new InputValidator();
         Check check = new Check();
 
-        int persons = inputValidator.getPersonsAmount(new Scanner(System.in));
+        int persons = inputValidator.getPersonsAmount(System.in);
         do {
-            Product product = inputValidator.getProduct(new Scanner(System.in));
+            Product product = inputValidator.getProduct(System.in);
             check.addProduct(product);
-        } while (!inputValidator.stopFillingCheck(new Scanner(System.in)));
+        } while (!inputValidator.stopFillingCheck(System.in));
         check.showProducts();
         check.showSplittedAmount(persons);
     }

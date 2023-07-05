@@ -43,6 +43,6 @@ public class Check {
                     break;
             }
         }
-        System.out.printf("%.2f " + currencyLabel + "с каждого гостя", amountPerPerson);
+        System.out.printf("%.2f " + currencyLabel + " с каждого гостя", amountPerPerson);
      }
 }
